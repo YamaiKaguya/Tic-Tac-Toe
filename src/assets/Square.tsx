@@ -1,19 +1,11 @@
-import { useState } from "react";
-
-export default function Square({ value, onSquareClick, winnerObj, winnerObjIndex }) {
-   if (winnerObj) {
-      for (let list of winnerObj.line)
-         console.log(list);
-   }
+export default function Square({ value, onSquareClick, highlight }) {
    return (
-      <>
-         <button
-            className="square"
-            onClick={onSquareClick}
-         >{value}</button>
-      </>
-   )
-
-
-
+      <button
+         className={`square ${highlight ? 'winner-square' : ''}`}
+         onClick={onSquareClick}
+      >
+         {value}
+      </button>
+   );
 }
+
